@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h2>{{ wish.title }}</h2>
+    <h6>By
+        {% if(wish.author) %}
+            {{ wish.author }}
+        {% else %}
+            <i>Unknown</i>
+        {% endif %}
+        <br>
+        Le {{ wish.dateCreated|format_datetime(pattern="dd/MM/yyyy 'à' kk:mm") }}
+    </h6>
+
+    <div id="wishDescription">
+        {{ wish.description }}
+    </div>
+{% endblock %}
+
+{% block title %}
+    {{ wish.title }}
+{% endblock %}

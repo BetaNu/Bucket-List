@@ -3,6 +3,15 @@
 {% block main %}
     <h3>Liste de choses à faire au moins une fois dans sa vie :</h3>
     <ul>
-        {# todo: remplir la liste #}
+        {% dump(wishes) %}
+        {% for wish in wishes %}
+            <li>
+                <a href="{{ path('wish_details', {'id' : wish.id}) }}" title="View wish's details">{{ wish.title }}</a>
+            </li>
+        {% endfor %}
     </ul>
+{% endblock %}
+
+{% block title %}
+    WishList
 {% endblock %}
