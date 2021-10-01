@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\WishRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -48,6 +49,13 @@ class Wish
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
+
+    /**
+     * @Assert\NotBlank(message="You must choose a category")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="wishes", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -102,14 +110,26 @@ class Wish
         return $this;
     }
 
-    public function getDateCreated(): \DateTimeInterface
+    public function getDateCreated(): DateTimeInterface
     {
         return $this->dateCreated;
     }
 
-    public function setDateCreated(\DateTimeInterface $dateCreated): self
+    public function setDateCreated(DateTimeInterface $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

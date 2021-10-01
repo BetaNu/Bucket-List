@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    <div id="category">
+        Category :
+        {{ wish.category.name }}
+    </div>
     <h2>{{ wish.title }}</h2>
     <h6>By
         {% if(wish.author) %}

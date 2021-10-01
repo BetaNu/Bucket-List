@@ -87,3 +87,7 @@ button:hover {
 .flash-success {
     background-color: limegreen;
 }
+
+#category {
+    margin-top: 1rem;
+}
