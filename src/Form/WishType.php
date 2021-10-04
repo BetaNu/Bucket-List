@@ -24,7 +24,7 @@ class WishType extends AbstractType
                             'rows' => '5',
                             'cols' => '50']
             ])
-            ->add('author')
+            ->add('author', TextType::class)
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label'=>'name'
