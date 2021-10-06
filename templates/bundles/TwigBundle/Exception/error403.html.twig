@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+    <h2>Access forbidden !</h2>
+    <p>You don't have rights to access this page. Maybe you are not connected ?</p>
+
+    <h5><a href="{{ path('main_home') }}">Go back to the homepage</a></h5>
+    <h5><a href="{{ path('app_login') }}">Login</a></h5>
+{% endblock %}
